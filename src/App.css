@@ -1,10 +1,6 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-color: #000000;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,20 +9,6 @@
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
 
 @keyframes App-logo-spin {
   from {
@@ -35,4 +17,83 @@
   to {
     transform: rotate(360deg);
   }
+}
+#logo{
+  height:48px;
+}
+#avatar{
+  height:36px;
+}
+#navbar-text{
+  color: #BFBFBF;
+}
+.btn{
+  border-radius:0;
+  border: none;
+  background-color: #000000;
+}
+.navbar-right-logo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#genres-details{
+  gap: 50px;
+}
+.genrebutton{
+  background-color: #000000;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  border: 1px solid white;
+}
+.genrebutton:hover{
+  background-color: white;
+  color: black;
+
+}
+#image-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+}
+#img{
+  height: 140px;
+  object-fit: cover;
+}
+#img:hover{
+  cursor: pointer;
+  transform: scale(1.1);
+  box-shadow: 3px 3px 8px;
+}
+h5{
+  display: flex;
+  color: white;
+}
+h3{
+  display: flex;
+  color: white;
+}
+.movie-card{
+  border: none;
+}
+.icon{
+  font-size: 20px;
+  color: white;
+}
+.icon:hover{
+  background-color: gray;
+  color: white;
+}
+#nav-icon{
+  border: 0.3px solid gray;
+margin: 0;
+}
+#nav-icons{
+font-size: 30px;
+display: flex;
+gap: 10px;
+justify-content: center;
+margin-top: 10px;
 }
