@@ -52,9 +52,10 @@ class TrendingNow extends Component {
             <span className="sr-only">Loading...</span>
           </Spinner>
         )}
-        <Carousel indicators={false}>
-      <Carousel.Item>
-      <Row id='image-container'>
+        
+        <Carousel fade indicators={false}>
+        <Carousel.Item>
+        <Row id='image-container'>
          {this.state.movies.map((movie)=>
          <Col className='col-2 mb-2' key={movie.imdbID}>
          <Card className='movie-card'>
@@ -71,5 +72,4 @@ class TrendingNow extends Component {
 }
  
 export default TrendingNow;
-
 
