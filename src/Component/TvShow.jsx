@@ -1,29 +1,25 @@
+import React from "react"
+import { Container,Row,Col,Spinner,Carousel,Card} from "react-bootstrap"
 import { useEffect, useState } from 'react'
-import { Container,Row,Col,Card,Carousel,Spinner } from 'react-bootstrap';
 
 
-const TrendingNow=()=> {
-    // state = {  
-    //     movies:[],
-    //     isLoading: true,
-    //     isError: false,
-    // } 
+const TvShow=()=>{
     const[movies,setMovies]=useState([])
-    const[isLoading, setIslLoading]=useState(true)
-    // eslint-disable-next-line no-unused-vars
-    const [isError,setIsError]=useState(false)
-   const fetchMovies= async () => {
+  const[isLoading, setIslLoading]=useState(true)
+  // eslint-disable-next-line no-unused-vars
+  const [isError,setIsError]=useState(false)
+
+ const fetchMovies= async () => {
     try {
       let response = await fetch(
-        'http://www.omdbapi.com/?i=tt3896198&apikey=47684db2&s=harry%20potter',
+        'https://www.omdbapi.com/?i=tt3896198&apikey=47684db2&s=merlin',
     
       );
       if (response.ok) {
         let data= await response.json()
-        
-       setMovies(data.Search)
+      console.log(data)
+        setMovies(data.Search)
        setIslLoading(false)
-
    
       } else {
         console.log("Something went wrong!");
@@ -35,17 +31,19 @@ const TrendingNow=()=> {
     } catch (err) {
       console.log(err.message);
       setIslLoading(false)
-          setIsError(true)
+      setIsError(true)
     }
   };
-useEffect(()=>{
-  console.log('componentDimount')
-  fetchMovies()
 
-},[])
+  useEffect(()=>{
+    console.log('componentDimount')
+    fetchMovies()
+  
+  },[])
       return (
-        <Container fluid className='mt-5' >
-         <h5 className='mb-4'>Trending Now</h5>
+        <Container fluid className='mt-5'>
+         <h5 className='mb-4'>TV SHOWS</h5>
+         
          {isLoading && (
          <Spinner
             animation="border"
@@ -71,6 +69,4 @@ useEffect(()=>{
         </Container>
         );
 }
- 
-export default TrendingNow;
-
+export default TvShow

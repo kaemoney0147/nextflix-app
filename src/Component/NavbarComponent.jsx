@@ -2,6 +2,7 @@ import React from 'react'
 import { Navbar,Container,Nav, Button} from 'react-bootstrap'
 import {CiSearch} from 'react-icons/ci'
 import {AiOutlineBell} from 'react-icons/ai'
+import { Link} from 'react-router-dom'
 const NavbarComponent=() =>{
   return (
    
@@ -13,8 +14,13 @@ const NavbarComponent=() =>{
         </Navbar.Brand>
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
+            <Link to={'/'}>
             <Nav.Link id='navbar-text' href="#features">Home</Nav.Link>
+            </Link>
+            <Link to='/tvshow'>
             <Nav.Link id='navbar-text' href="#pricing">Tv Shows</Nav.Link>
+            </Link>
+
             <Nav.Link id='navbar-text' href="#features">Movies</Nav.Link>
             <Nav.Link id='navbar-text' href="#features">Recently Added</Nav.Link>
             <Nav.Link id='navbar-text' href="#features">My List</Nav.Link>

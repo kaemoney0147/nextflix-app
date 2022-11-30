@@ -1,13 +1,14 @@
-import { Component } from 'react'
+import { useEffect, useState } from 'react'
 import { Container,Row,Col,Card,Carousel,Spinner } from 'react-bootstrap';
 
-class WatchitAgain extends Component {
-    state = {  
-        movies:[],
-        isLoading: true,
-        isError: false,
-    } 
-   componentDidMount= async () => {
+const WatchitAgain=()=> {
+
+  const[movies,setMovies]=useState([])
+  const[isLoading, setIslLoading]=useState(true)
+  // eslint-disable-next-line no-unused-vars
+  const [isError,setIsError]=useState(false)
+
+   const fetchMovies= async () => {
     try {
       let response = await fetch(
         'https://www.omdbapi.com/?apikey=34d3d0dc&s=Batman&page=2',
@@ -16,33 +17,32 @@ class WatchitAgain extends Component {
       if (response.ok) {
         let data= await response.json()
         console.log(data)
-        this.setState({
-         movies: data.Search,
-         isLoading: false,
-          })
+       setMovies(data.Search)
+       setIslLoading(false)
+
    
       } else {
         console.log("Something went wrong!");
         setTimeout(() => {
-          this.setState({
-            isLoading: false,
-            isError: true,
-          })
+          setIslLoading(false)
+          setIsError(true)
         }, 1000)
       }
     } catch (err) {
       console.log(err.message);
-      this.setState({
-        isLoading: false,
-        isError: true,
-      })
+      setIslLoading(false)
+          setIsError(true)
     }
   };
-    render() { 
+useEffect(()=>{
+  console.log('componentDimount')
+  fetchMovies()
+
+},[])
       return (
         <Container fluid className='mt-5'>
          <h5 className='mb-4'>Watch It Again</h5>
-         {this.state.isLoading && (
+         {isLoading && (
          <Spinner
             animation="border"
             role="status"
@@ -54,7 +54,7 @@ class WatchitAgain extends Component {
         <Carousel indicators={false}>
       <Carousel.Item>
       <Row id='image-container'>
-         {this.state.movies.map((movie)=>
+         {movies.map((movie)=>
          <Col className='col-2 mb-2' key={movie.imdbID}>
          <Card className='movie-card'>
       <Card.Img id='img' src={movie.Poster} />
@@ -66,7 +66,6 @@ class WatchitAgain extends Component {
     </Carousel>
         </Container>
         );
-    }
 }
  
 export default WatchitAgain;
