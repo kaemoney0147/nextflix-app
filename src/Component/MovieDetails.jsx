@@ -22,6 +22,7 @@ const MovieDetails = () => {
         let data = await response.json();
         setTimeout(() => {
           setMovie(data);
+          console.log(data)
           setIsLoading(false);
         }, 2000);
       } else {

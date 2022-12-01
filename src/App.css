@@ -24,18 +24,33 @@
 #avatar{
   height:36px;
 }
-#navbar-text{
+/* #navbar-text{
   color: #BFBFBF;
+} */
+.nav-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
 }
 .btn{
   border-radius:0;
   border: none;
   background-color: #000000;
 }
+.nav-link{
+  color: white;
+  text-decoration: none;
+}
+a.nav-link:hover{
+color: none;
+}
 .navbar-right-logo{
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
+  color: white;
 }
 #genres-details{
   gap: 50px;

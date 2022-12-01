@@ -3,33 +3,42 @@ import { Navbar,Container,Nav, Button} from 'react-bootstrap'
 import {CiSearch} from 'react-icons/ci'
 import {AiOutlineBell} from 'react-icons/ai'
 import { Link} from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 const NavbarComponent=() =>{
+
+  const location = useLocation()
+  console.log(location)
   return (
    
 
 <Navbar collapseOnSelect expand="lg" >
       <Container fluid>
         <Navbar.Brand href="#home">
+          <Link to={'/'}>
             <img src='netflix_logo.png' alt='nextflix logo' id='logo'/>
+            </Link>
         </Navbar.Brand>
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Link to={'/'}>
-            <Nav.Link id='navbar-text' href="#features">Home</Nav.Link>
+          <div className="nav-item">
+            <Link to={'/'} className='nav-link'>
+            <div>Home</div>
             </Link>
-            <Link to='/tvshow'>
-            <Nav.Link id='navbar-text' href="#pricing">Tv Shows</Nav.Link>
+            <Link to='/tvshow' className='nav-link'>
+            <div className={
+                location.pathname === '/tvshow' ? 'nav-link active' : 'nav-link'
+              } id='navbar-text'>Tv Shows</div>
             </Link>
-
-            <Nav.Link id='navbar-text' href="#features">Movies</Nav.Link>
-            <Nav.Link id='navbar-text' href="#features">Recently Added</Nav.Link>
-            <Nav.Link id='navbar-text' href="#features">My List</Nav.Link>
-          </Nav>
+            <div className={
+                location.pathname === '/movies' ? 'nav-link active' : 'nav-link'
+              } >Movies</div>
+            <div >Recently Added</div>
+            <div >My List</div>
+          </div>
         </Navbar.Collapse>
         <div className='navbar-right-logo'>
-        <CiSearch id='navbar-text'/>
-        <Nav.Link id='navbar-text' href="#features">KIDS</Nav.Link>
-        <AiOutlineBell id='navbar-text'/>
+        <CiSearch/>
+        <div>KIDS</div>
+        <AiOutlineBell/>
         <div>
         <Button type="button" className="btn dropdown-toggle" data-bs-toggle="dropdown"
         aria-expanded="false">

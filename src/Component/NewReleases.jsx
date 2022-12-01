@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Container,Row,Col,Card,Carousel,Spinner } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const NewReleases=()=> {
   const[movies,setMovies]=useState([])
@@ -57,7 +58,9 @@ const NewReleases=()=> {
          {movies.map((movie)=>
          <Col className='col-2 mb-2' key={movie.imdbID}>
          <Card className='movie-card'>
+         <Link to={'MovieDetails/'+ movie.imdbID}>
       <Card.Img id='img' src={movie.Poster} />
+      </Link>
     </Card>
          </Col>
          )}

@@ -9,6 +9,7 @@ import MovieDetails from './Component/MovieDetails'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Genres from './Component/Genres';
 import Home from './Component/Home'
+import NotFound from './Component/NotFound';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route element={<Home/>} path='/'/>
         <Route element={<TvShow/>} path='/tvshow'/>
         <Route element={<MovieDetails/>} path='/MovieDetails/:imdbID'/>
+        <Route element={<NotFound />} path="*" />
       </Routes>
       <Footers/>
     </div>
